@@ -1,21 +1,22 @@
 import { AppDataSource } from "./data-source"
 import { User } from "./entity/User"
 import {Request,Response,NextFunction} from "express";
+import * as BodyParser from 'body-parser';
+import * as cors from 'cors';
+
+// import * as express from 'express';
+let express=require('express');
+const port = 8080;
 
 AppDataSource.initialize().then(async () => {
+    const app = express();
+    app.use(cors());
+    app.use(BodyParser.json());
 
-    console.log("Inserting a new user into the database...")
-    const user = new User()
-    user.firstName = "Timber"
-    user.lastName = "test"
-    user.age = 25
-    await AppDataSource.manager.save(user)
-    console.log("Saved a new user with id: " + user.id)
+    app.get('/',(req:Request,res:Response,next:NextFunction) =>{
+        res.send('express server start!');
+    });
 
-    console.log("Loading users from the database...")
-    const users = await AppDataSource.manager.find(User)
-    console.log("Loaded users: ", users)
-
-    console.log("Here you can setup and run express / fastify / any other framework.")
+    app.listen(port,()=> console.log(`App is running at port ${port}`));
 
 }).catch(error => console.log(error))
