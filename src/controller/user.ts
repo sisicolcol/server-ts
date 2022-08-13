@@ -1,6 +1,5 @@
 import { Response, Request } from "express";
 import { User } from '../entity/User';
-import { getManager, getRepository, DataSource } from "typeorm";
 import { AppDataSource } from "../data-source"
 
 const getDetail = async (req:Request, res:Response)=>{
