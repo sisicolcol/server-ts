@@ -3,7 +3,7 @@ import { User } from '../entity/User';
 import { getManager, getRepository, DataSource } from "typeorm";
 import { AppDataSource } from "../data-source"
 
-const homeDetail = async (req:Request, res:Response)=>{
+const getDetail = async (req:Request, res:Response)=>{
 
     // save
     // const user = new User();
@@ -20,7 +20,7 @@ const homeDetail = async (req:Request, res:Response)=>{
     // let data = await AppDataSource.manager.delete(User,2);
 
     // all find
-    // let data = await AppDataSource.manager.find(User);
+    let data = await AppDataSource.manager.find(User);
 
     // find by id
     // let data = await AppDataSource.manager.findOneBy(User,{id : 1});
@@ -33,6 +33,32 @@ const homeDetail = async (req:Request, res:Response)=>{
     })
 }
 
+const postDetail = async (req:Request, res: Response)=>{
+
+    try{
+        const user = new User();
+        user.name=req.body.name;
+        user.email=req.body.email;
+        user.phone=req.body.phone;
+        await AppDataSource.manager.save(user);
+        res.send({code:"200", msg:"create_success"});
+    } catch (error){
+        console.error(error);
+    }    
+
+}
+
+const deleteDetail = async (req:Request, res:Response)=>{
+    try {
+        await AppDataSource.manager.delete(User,req.body.id);
+        res.send({code:"200", msg:"create_success"});
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export {
-    homeDetail
+    getDetail,
+    postDetail,
+    deleteDetail
 }

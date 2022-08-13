@@ -20,10 +20,10 @@ app.get('/',(req:Request,res:Response)=>{
     res.send('hello');
 })
 
-app.get('/test',(req:Request,res:Response)=>{
-    res.json({
-        data:"test done"
-    });
-})
+// app.get('/test',(req:Request,res:Response)=>{
+//     res.json({
+//         data:"test done"
+//     });
+// })
 
 app.use('/',router);

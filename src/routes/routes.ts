@@ -1,9 +1,11 @@
 import { Router } from "express";
-import {homeDetail} from '../controller/user'
+import {getDetail,postDetail,deleteDetail} from '../controller/user'
 
 const router = Router();
 
-router.get('/home',homeDetail);
+router.get('/test',getDetail);
+router.post('/test',postDetail);
+router.delete('/test',deleteDetail);
 
 export {
     router
