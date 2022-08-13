@@ -6,9 +6,10 @@
    "author": "Seonguk <xsungwook3x@naver.com>",
    "license": "MIT",
    "scripts": {
-      "start": "ts-node src/index.ts",
+      "start": "nodemon src/index.ts",
       "typeorm": "typeorm-ts-node-commonjs",
-      "dev": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts"
+      "dev": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts",
+      "start2" : "nodemon app.ts"
    },
    "dependencies": {
       "body-parser": "^1.20.0",

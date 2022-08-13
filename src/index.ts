@@ -1,11 +1,9 @@
 import { AppDataSource } from "./data-source"
-import { User } from "./entity/User"
-// import {Request,Response,NextFunction} from "express";
-// import * as BodyParser from 'body-parser';
-// import * as cors from 'cors';
 import app from './app';
+import {Request, Response} from "express";
+import { router } from './routes/routes'
 
-const port = 8080;
+const port = 3000;
 
 AppDataSource
     .initialize()
@@ -17,3 +15,15 @@ AppDataSource
     })
  
 app.listen(port,()=> console.log(`App is running at port ${port}`));
+
+app.get('/',(req:Request,res:Response)=>{
+    res.send('hello');
+})
+
+app.get('/test',(req:Request,res:Response)=>{
+    res.json({
+        data:"test done"
+    });
+})
+
+app.use('/',router);
