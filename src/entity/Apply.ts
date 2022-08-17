@@ -1,4 +1,5 @@
 import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import "reflect-metadata"
 
 @Entity('apply')
 export class Apply extends BaseEntity{
@@ -6,7 +7,7 @@ export class Apply extends BaseEntity{
     @PrimaryGeneratedColumn()
     apply_id!: number;
 
-    @Column({type:'date'})
+    @Column()
     service_date!: string;
 
     @Column()

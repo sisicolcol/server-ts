@@ -1,15 +1,31 @@
 import {Response,Request} from "express";
 import {Apply} from "../entity/Apply";
-import {AppDataSource} from "../data-source";
+import {AppDataSource} from "../datasource";
+import {ApplyRepository} from "../repository/ApplyRepository";
 
-const getQuickApply = async (req:Request,res:Response)=>{
-    let data=await AppDataSource.manager.find(Apply);
+const getQuickApply = async (req:Request,res:Response)=>{//퀵 지원목록 조회
+    try {
+        let data = await ApplyRepository.findQuickApply();
 
+        res.status(200).send({state:"ok",data:{data}});
+
+    }catch (err){
+        res.status(500).send({error:{err}});
+        console.log(err);
+    }
 
 }
 
-const getApply = async (req:Request,res:Response)=>{
-    let data=await AppDataSource.manager.find(Apply);
+const getApply = async (req:Request,res:Response)=>{ // 사전예약 지원 목록 조회
+    try{
+        let data=await AppDataSource.manager.find(Apply);
+
+        res.status(200).send({state:"ok",data:{data}})
+    }catch (err){
+        res.status(500).send({error:{err}});
+        console.log(err);
+    }
+
 
 
 }
@@ -25,14 +41,28 @@ const addApply = async (req:Request,res:Response)=>{
         apply.precaution=req.body.precaution;
         apply.way=req.body.way;
         apply.mem_id=req.body.mem_id;
+
         await AppDataSource.manager.save(apply);
-        res.send({code:"200",message:"create apply success"})
+
+        res.status(200).send({state:"ok",message:"create apply success"})
     }catch(err){
+        res.status(500).send({error:{err}});
+        console.log(err);
+    }
+
+}
+
+const getMyApply=async (req:Request,res:Response)=>{// 시각장애인 본인의 지원 조회
+    try {
+        let resource = await ApplyRepository.findByMem_Id(Number(req.params.mem_id));
+        res.send({state:"ok",data:{resource}});
+    }catch(err){
+        res.status(500).send({error:{err}});
         console.log(err);
     }
 
 }
 
 export {
-    addApply,getQuickApply,
+    addApply,getQuickApply,getApply,getMyApply
 }

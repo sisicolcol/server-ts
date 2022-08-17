@@ -1,4 +1,4 @@
-import { AppDataSource } from "./data-source"
+import { AppDataSource } from "./datasource"
 import app from './app';
 import {Request, Response} from "express";
 import { router } from './routes/routes'
@@ -26,4 +26,4 @@ app.get('/',(req:Request,res:Response)=>{
 //     });
 // })
 
-app.use('/api/',router);
+app.use('/api',router);
