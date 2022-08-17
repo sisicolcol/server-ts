@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
 import { User } from '../entity/User';
-import { AppDataSource } from "../data-source"
+import { AppDataSource } from "../datasource"
 
 const getDetail = async (req:Request, res:Response)=>{
 

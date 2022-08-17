@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
 import { Member } from '../entity/Member';
-import { AppDataSource } from "../data-source"
+import { AppDataSource } from "../datasource"
 
 const signup = async (req:Request,res:Response)=>{
     try{
