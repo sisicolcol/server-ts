@@ -2,6 +2,7 @@ import { AppDataSource } from "./datasource"
 import app from './app';
 import {Request, Response} from "express";
 import { router } from './routes/routes'
+import "reflect-metadata";
 
 const port = 3000;
 
@@ -20,10 +21,5 @@ app.get('/',(req:Request,res:Response)=>{
     res.send('hello');
 })
 
-// app.get('/test',(req:Request,res:Response)=>{
-//     res.json({
-//         data:"test done"
-//     });
-// })
 
 app.use('/api/',router);
