@@ -12,7 +12,8 @@ router.get("/",[checkJwt],MemberController.listAll);
 router.get("/:id([0-9]+)",[checkJwt],MemberController.getOneById);
 
 // create new member
-router.post("/signup",[checkJwt],MemberController.newMember);
+router.post("/signup",MemberController.newMember);
+// router.post("/signup",[checkJwt],MemberController.newMember);
 
 // edit member
 router.patch("/:id([0-9]+)",[checkJwt],MemberController.editMember);

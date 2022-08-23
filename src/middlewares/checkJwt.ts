@@ -4,15 +4,18 @@ import jwtSecret from "../config/index";
 
 
 export const checkJwt = (req:Request, res:Response, next:NextFunction) => {
-
+    console.log('checkJWT!: ',req.headers);
     // get jwt token from the head
     const token = <string>req.headers["auth"];
     let jwtPayload;
+
+    console.log('token:',token);
 
     // validate token
     try {
         jwtPayload = <any>jwt.verify(token,jwtSecret);
         res.locals.jwtPayload = jwtPayload;
+        console.log(jwtPayload);
     } catch (error) {
         res.status(401).send();
         return;
