@@ -16,9 +16,9 @@ const getQuickApply = async (req:Request,res:Response)=>{//퀵 지원목록 조�
 
 }
 
-const getApply = async (req:Request,res:Response)=>{ // 사전예약 지원 목록 조회
+const getPreApply = async (req:Request,res:Response)=>{ // 사전예약 지원 목록 조회
     try{
-        let data=await AppDataSource.manager.find(Apply);
+        let data=await ApplyRepository.findPreApply();
 
         res.status(200).send({state:"ok",data:{data}})
     }catch (err){
@@ -64,5 +64,5 @@ const getMyApply=async (req:Request,res:Response)=>{// 시각장애인 본인의
 }
 
 export {
-    addApply,getQuickApply,getApply,getMyApply
+    addApply,getQuickApply,getPreApply,getMyApply
 }

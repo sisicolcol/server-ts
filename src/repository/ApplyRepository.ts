@@ -10,10 +10,21 @@ export const ApplyRepository =AppDataSource.getRepository(Apply).extend({
     findQuickApply(){
         let date = new Date();
 
-        let today : string = date.getFullYear()+'/'+date.getMonth()+'/'+date.getDate();
+        let today : string = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+        let time : number =date.getHours();
 
         return this.createQueryBuilder("apply")
-            .where("apply.service_date = : today",{today})
+            .where("apply.service_date = :today",{today})
+            .andWhere("apply.service_time > :time",{time})
+            .getMany();
+    },
+    findPreApply(){
+        let date = new Date();
+
+        let today : string = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+
+        return this.createQueryBuilder("apply")
+            .where("apply.service_date > :today",{today})
             .getMany();
     }
 })

@@ -7,8 +7,8 @@ export class Apply extends BaseEntity{
     @PrimaryGeneratedColumn()
     apply_id!: number;
 
-    @Column()
-    service_date!: string;
+    @Column({type:"date"})
+    service_date!: Date;
 
     @Column()
     service_time!: number;
