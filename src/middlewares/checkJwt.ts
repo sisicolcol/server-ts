@@ -1,7 +1,6 @@
 require('dotenv').config()
 import { Request, Response, NextFunction } from "express";
 import * as jwt from "jsonwebtoken";
-import jwtSecret from "../config/index";
 
 
 export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
@@ -11,7 +10,7 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     
     //Try to validate the token and get data
     try {
-      jwtPayload = <any>jwt.verify(token, jwtSecret);
+      jwtPayload = <any>jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
       res.locals.jwtPayload = jwtPayload;
     } catch (error) {
       //If token is not valid, respond with 401 (unauthorized)

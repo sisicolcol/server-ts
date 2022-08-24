@@ -5,7 +5,6 @@ import {validate} from "class-validator";
 import { Member } from '../entity/Member';
 import { AppDataSource } from "../datasource"
 import MemberController from "./MemberController";
-import jwtSecret from "../config/index";
 
 class AuthController{
 
