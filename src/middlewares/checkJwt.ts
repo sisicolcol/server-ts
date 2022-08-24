@@ -1,3 +1,4 @@
+require('dotenv').config()
 import { Request, Response, NextFunction } from "express";
 import * as jwt from "jsonwebtoken";
 import jwtSecret from "../config/index";
@@ -21,7 +22,7 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     //The token is valid for 1 hour
     //We want to send a new token on every request
     const { mem_id, mem_name } = jwtPayload;
-    const newToken = jwt.sign({ mem_id, mem_name }, jwtSecret, {
+    const newToken = jwt.sign({ mem_id, mem_name }, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "1h"
     });
     res.setHeader("token", newToken);
