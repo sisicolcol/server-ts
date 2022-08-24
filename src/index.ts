@@ -1,7 +1,9 @@
+require('dotenv').config()
 import { AppDataSource } from "./datasource"
 import app from './app';
 import {Request, Response} from "express";
 import { router } from './routes/routes'
+import * as jwt from "jsonwebtoken";
 import "reflect-metadata";
 
 const port = 3000;
@@ -23,3 +25,10 @@ app.get('/',(req:Request,res:Response)=>{
 
 
 app.use('/api/',router);
+
+app.post('/testToken',(req:Request,res:Response)=>{
+    const username = req.body.username;
+    const user = {name : username};
+    const token = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)
+    res.json({token:token})
+})
