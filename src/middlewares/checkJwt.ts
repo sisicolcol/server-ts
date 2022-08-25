@@ -27,9 +27,9 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     const newToken = jwt.sign({ mem_id, mem_type }, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "1h"
     });
-    console.log('newToken:',newToken);
-    console.log('mem_id:',mem_id);
-    console.log('mem_type:',mem_type);
+    // console.log('newToken:',newToken);
+    // console.log('mem_id:',mem_id);
+    // console.log('mem_type:',mem_type);
     res.setHeader("token", newToken);
   
     //Call the next middleware or controller
