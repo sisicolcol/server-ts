@@ -2,7 +2,7 @@ import {Apply} from "../entity/Apply";
 import {AppDataSource} from "../datasource";
 
 export const ApplyRepository =AppDataSource.getRepository(Apply).extend({
-    findByMem_Id(mem_id: number ){
+    findByMem_Id(mem_id: string ){
         return this.createQueryBuilder("apply")
             .where("apply.mem_id = :mem_id",{mem_id})
             .getMany();
