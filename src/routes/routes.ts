@@ -1,7 +1,16 @@
 import { Router } from "express";
 import {addApply, getMyApply, getPreApply, getQuickApply} from "../controller/apply";
+import auth from './auth';
+import member from './member';
 
 const router = Router();
+
+//login
+router.use("/auth",auth);
+
+//signup
+router.use("/auth",member);
+
 
 router.post('/user/apply',addApply)//시각장애인 활동지원서비스 신청하기
 
