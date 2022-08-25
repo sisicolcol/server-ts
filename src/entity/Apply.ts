@@ -1,6 +1,7 @@
 import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 import "reflect-metadata"
 
+
 @Entity('apply')
 export class Apply extends BaseEntity{
 
