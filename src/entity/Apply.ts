@@ -33,5 +33,5 @@ export class Apply extends BaseEntity{
     details!: string;
 
     @Column()
-    mem_id!:number;
+    mem_id!:string;
 }

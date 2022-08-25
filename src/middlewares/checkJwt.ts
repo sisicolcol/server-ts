@@ -5,7 +5,7 @@ import * as jwt from "jsonwebtoken";
 
 export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     //Get the jwt token from the head
-    const authHeader = <string>req.headers["auth"];
+    const authHeader = <string>req.headers["authorization"];
     let jwtPayload;
 
     if(authHeader){
@@ -27,9 +27,9 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     const newToken = jwt.sign({ mem_id, mem_type }, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "1h"
     });
-    console.log('newToken:',newToken);
-    console.log('mem_id:',mem_id);
-    console.log('mem_type:',mem_type);
+    // console.log('newToken:',newToken);
+    // console.log('mem_id:',mem_id);
+    // console.log('mem_type:',mem_type);
     res.setHeader("token", newToken);
   
     //Call the next middleware or controller

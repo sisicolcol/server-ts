@@ -55,7 +55,7 @@ const addApply = async (req:Request,res:Response)=>{
 
 const getMyApply=async (req:Request,res:Response)=>{// 시각장애인 본인의 지원 조회
     try {
-        let resource = await ApplyRepository.findByMem_Id(Number(req.params.mem_id));
+        let resource = await ApplyRepository.findByMem_Id(req.params.mem_id);
         res.send({state:"ok",data:{resource}});
     }catch(err){
         res.status(500).send({error:{err}});
