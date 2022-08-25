@@ -1,6 +1,12 @@
 .idea/
+/idea
 .vscode/
 node_modules/
+/node_modules
 build/
 tmp/
 temp/
+.env
+package-lock.json
+yarn-error.log
+yarn.lock
