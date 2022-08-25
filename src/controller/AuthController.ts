@@ -34,7 +34,7 @@ class AuthController{
         }
 
         //Sing JWT, valid for 1 hour
-        const payload={mem_id:member.mem_id}
+        const payload={mem_id:member.mem_id,mem_type:member.mem_type}
         const token = jwt.sign(
             payload,
             process.env.ACCESS_TOKEN_SECRET,
