@@ -38,7 +38,8 @@ const addApply = async (req:Request,res:Response)=>{
         apply.start_point=req.body.start_point;
         apply.end_point=req.body.end_point;
         apply.duration=req.body.duration;
-        apply.precaution=req.body.precaution;
+        apply.contents=req.body.contents;
+        apply.details=req.body.details;
         apply.way=req.body.way;
         apply.mem_id=req.body.mem_id;
 

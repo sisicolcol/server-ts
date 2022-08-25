@@ -27,7 +27,10 @@ export class Apply extends BaseEntity{
     way!:boolean;
 
     @Column({type:'text'})
-    precaution!: string;
+    contents!: string;
+
+    @Column({type:'text'})
+    details!: string;
 
     @Column()
     mem_id!:number;
