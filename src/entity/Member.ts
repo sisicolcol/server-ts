@@ -27,6 +27,12 @@ export class Member extends BaseEntity{
     @Column()
     mem_address:string;
 
+    @Column()
+    mem_cert:string;
+
+    @Column()
+    mem_type:boolean;
+
     hashPassword(){
         this.password = bcrypt.hashSync(this.password,8);
         console.log("hashPassword() : ",this.password);
