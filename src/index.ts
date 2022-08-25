@@ -1,5 +1,5 @@
 require('dotenv').config()
-import { AppDataSource } from "./datasource"
+import { AppDataSource } from "./config/datasource"
 import app from './app';
 import {Request, Response} from "express";
 import * as jwt from "jsonwebtoken";

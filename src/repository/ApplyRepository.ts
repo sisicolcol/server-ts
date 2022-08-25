@@ -1,5 +1,5 @@
 import {Apply} from "../entity/Apply";
-import {AppDataSource} from "../datasource";
+import {AppDataSource} from "../config/datasource";
 
 export const ApplyRepository =AppDataSource.getRepository(Apply).extend({
     findByMem_Id(mem_id: string ){
