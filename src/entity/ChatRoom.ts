@@ -3,33 +3,14 @@ import {Entity, Column, PrimaryGeneratedColumn, BaseEntity} from "typeorm"
 @Entity('chat_room')
 export class ChatRoom extends BaseEntity{
     @PrimaryGeneratedColumn()
-    mem_no:number;
+    chat_room_no:number;
 
     @Column()
-    mem_id:string;
+    user_1:number;
 
     @Column()
-    password:string;
+    user_2:number;
 
     @Column()
-    mem_name:string;
-
-    @Column()
-    mem_phone:string;
-
-    @Column()
-    mem_gender:string;
-
-    @Column()
-    mem_card:string;
-
-    @Column()
-    mem_address:string;
-
-    @Column()
-    mem_cert:string;
-
-    @Column()
-    mem_type:boolean;
-    
+    status:number;
 }
