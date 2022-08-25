@@ -5,7 +5,7 @@ import { checkJwt } from "../middlewares/checkJwt";
 const router = Router();
 
 // get all members
-router.get("/",[checkJwt],MemberController.listAll);
+router.get("/",MemberController.listAll);
 
 // get one member
 router.get("/:id([0-9]+)",[checkJwt],MemberController.getOneById);
