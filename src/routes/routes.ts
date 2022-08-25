@@ -3,6 +3,7 @@ import {addApply, getMyApply, getPreApply, getQuickApply} from "../controller/ap
 
 const router = Router();
 
+
 router.post('/user/apply',addApply)//시각장애인 활동지원서비스 신청하기
 
 router.get('/user/applylist/:mem_id',getMyApply);//나의 신청목록
