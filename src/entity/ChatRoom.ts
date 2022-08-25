@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryGeneratedColumn, BaseEntity, Timestamp} from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Timestamp } from "typeorm";
 
 @Entity('chat_room')
 export class ChatRoom extends BaseEntity{
@@ -6,10 +6,10 @@ export class ChatRoom extends BaseEntity{
     chat_room_no:number; // 식별자
 
     @Column()
-    user_1:number;
+    user_no:number; // 사용자(시각장애인) 식별자
 
     @Column()
-    user_2:number;
+    helper_no:number; // 사용자(헬퍼) 식별자
 
     @Column()
     created_at:Timestamp;
