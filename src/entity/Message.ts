@@ -4,16 +4,16 @@ import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, U
 export class Message extends BaseEntity{
 
     @PrimaryGeneratedColumn()
-    message_no:number; // 식별자
+    message_no:number; // 메시지 식별자
 
     @Column()
     chat_room_no:number; // 채팅방 식별자
 
     @Column()
-    sender_no:number; // 멤버 식별자
+    sender_no:number; // 멤버(발신) 식별자
 
     @Column()
-    reciver_no:number; // 멤버 식별자
+    reciver_no:number; // 멤버(수신) 식별자
 
     @Column() // default: varchar255
     content:string; 

@@ -4,7 +4,7 @@ import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, U
 export class ChatRoom extends BaseEntity{
 
     @PrimaryGeneratedColumn()
-    chat_room_no:number; // 식별자
+    chat_room_no:number; // 채팅방 식별자
 
     @Column()
     blind_user_no:number; // 사용자 (시각장애인) 식별자
