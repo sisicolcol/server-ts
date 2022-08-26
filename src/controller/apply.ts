@@ -1,6 +1,6 @@
 import {Response,Request} from "express";
 import {Apply} from "../entity/Apply";
-import {AppDataSource} from "../config/datasource";
+import {AppDataSource} from "../datasource";
 import {ApplyRepository} from "../repository/ApplyRepository";
 
 const getQuickApply = async (req:Request,res:Response)=>{//퀵 지원목록 조회

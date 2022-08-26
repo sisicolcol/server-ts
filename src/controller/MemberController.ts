@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
 import { Member } from '../entity/Member';
-import { AppDataSource } from "../config/datasource"
+import { AppDataSource } from "../datasource"
 import { validate } from "class-validator";
 
 class MemberController{
