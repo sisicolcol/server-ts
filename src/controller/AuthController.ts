@@ -1,14 +1,15 @@
 require('dotenv').config()
 import { Request, Response } from "express";
 import * as jwt from "jsonwebtoken";
-import {validate} from "class-validator";
+// import {validate} from "class-validator";
 import { Member } from '../entity/Member';
-import { AppDataSource } from "../config/datasource"
+import { AppDataSource } from "../datasource"
 
 class AuthController{
 
     // api/auth/login
     static login = async(req : Request, res: Response)=>{
+        console.log('req:',req);
         // check if id, password are set
         let {mem_id,password} = req.body;
         console.log(mem_id,password);
