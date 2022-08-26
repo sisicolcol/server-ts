@@ -1,12 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Timestamp } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, Timestamp } from "typeorm";
 
-@Entity('chat_room')
+@Entity()
 export class Message extends BaseEntity{
+
     @PrimaryGeneratedColumn()
     message_no:number; // 식별자
 
     @Column()
-    room_no:number; // 채팅방 식별자
+    chat_room_no:number; // 채팅방 식별자
 
     @Column()
     sender_no:number; // 멤버 식별자
@@ -17,11 +18,11 @@ export class Message extends BaseEntity{
     @Column() // default: varchar255
     content:string; 
 
-    @Column()
-    created_at:Timestamp;
+    @CreateDateColumn()
+    created_at: Timestamp;
 
-    @Column()
-    updated_at:Timestamp;
+    @UpdateDateColumn()
+    updated_at: Timestamp;
 
     @Column()
     status:number; // 0-활성화/1-삭제됨

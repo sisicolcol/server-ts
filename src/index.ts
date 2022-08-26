@@ -1,12 +1,13 @@
-require('dotenv').config()
-import { AppDataSource } from "./datasource"
+import * as dotenv from 'dotenv';
+dotenv.config();
+import { AppDataSource } from "./datasource";
 import app from './app';
 import {Request, Response} from "express";
 import * as jwt from "jsonwebtoken";
 
 import { router } from './routes/routes'
 
-const port = 3000;
+const port = process.env.SERVER_PORT;
 
 AppDataSource
     .initialize()

@@ -1,21 +1,22 @@
-import {Entity, Column, PrimaryGeneratedColumn, BaseEntity, Timestamp} from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, Timestamp } from "typeorm";
 
-@Entity('chat_room')
+@Entity()
 export class ChatRoom extends BaseEntity{
+
     @PrimaryGeneratedColumn()
     chat_room_no:number; // 식별자
 
     @Column()
-    user_1:number;
+    blind_user_no:number; // 사용자 (시각장애인) 식별자
 
     @Column()
-    user_2:number;
+    helper_no:number; // 사용자(헬퍼) 식별자
 
-    @Column()
-    created_at:Timestamp;
+    @CreateDateColumn()
+    created_at: Timestamp;
 
-    @Column()
-    updated_at:Timestamp;
+    @UpdateDateColumn()
+    updated_at: Timestamp;
 
     @Column()
     status:number; // 0-활성화/1-삭제
