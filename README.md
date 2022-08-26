@@ -1,7 +1,18 @@
 # server
 
+before start
+```
+npm install
+```
+
+how to start
 ```
 npm run start
+```
+
+default page
+```
+http://localhost:3000
 ```
 
 # 08.26 update
