@@ -9,6 +9,10 @@ import { AppDataSource } from "../datasource"
 export default class ChatController {
     constructor(){}
 
+    public static getUserChatList(req: Request, res: Response): void {
+        
+    }
+
     public static getAllChats(req: Request, res: Response): void {
         
     }
