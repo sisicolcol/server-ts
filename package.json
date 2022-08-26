@@ -35,11 +35,12 @@
       "highlight.js": "^11.6.0",
       "jsonwebtoken": "^8.5.1",
       "mysql": "^2.14.1",
+      "parse5": "^7.0.0",
       "reflect-metadata": "^0.1.13",
+      "sqlstring": "^2.3.3",
       "swagger-autogen": "^2.21.5",
       "swagger-jsdoc": "^6.2.5",
       "swagger-ui-express": "^4.5.0",
-      "sqlstring": "^2.3.3",
       "typeorm": "0.3.7"
    }
 }
